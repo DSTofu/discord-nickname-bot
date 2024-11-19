@@ -15,6 +15,3 @@ def keep_alive():
     
     thread = threading.Thread(target=run)
     thread.start()
-
-app = flask.Flask(__name__)
-app.run(host='0.0.0.0', port=PORT)
