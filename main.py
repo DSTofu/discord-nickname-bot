@@ -280,6 +280,12 @@ async def help_command(ctx):
     await ctx.send(help_text)
 
 # Run bot
-TOKEN = os.getenv("TOKEN")
+TOKEN = os.getenv('DISCORD_TOKEN')
+if not TOKEN:
+    print("Error: Discord token not found!")
+    exit(1)
 keep_alive()
 bot.run(TOKEN)
+
+# Specify port
+PORT = int(os.getenv('PORT', 10000))  # Default to 10000 if not set
