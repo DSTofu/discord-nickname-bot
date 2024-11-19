@@ -280,6 +280,6 @@ async def help_command(ctx):
     await ctx.send(help_text)
 
 # Run bot
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = os.getenv("TOKEN")
 keep_alive()
 bot.run(TOKEN)
