@@ -286,6 +286,3 @@ if not TOKEN:
     exit(1)
 keep_alive()
 bot.run(TOKEN)
-
-# Specify port
-PORT = int(os.getenv('PORT', 10000))  # Default to 10000 if not set
