@@ -148,6 +148,19 @@ async def update_names(ctx):
     except asyncio.TimeoutError:
         await ctx.send("Timeout reached. Update cancelled.")
 
+# Command to show nicknames
+@bot.command(name='shownames')
+async def show_names(ctx):
+    if ctx.author.id in user_nicknames and user_nicknames[ctx.author.id]["names"]:
+        data = user_nicknames[ctx.author.id]
+        mode_text = "random selection" if data["mode"] == "random" else "sequential order"
+        await ctx.send(
+            f"Your current nickname list ({mode_text} mode):\n" +
+            "\n".join(f"{i+1}. {name}" for i, name in enumerate(data["names"]))
+        )
+    else:
+        await ctx.send("You don't have any nicknames set up yet. Use $nickupdatenames to add some!")
+
 # Command to add nicknames
 @bot.command(name='addnames')
 async def add_names(ctx):
